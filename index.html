@@ -36,8 +36,6 @@ body {
   overflow-x: hidden;
   width: 100%;
 }
-
-/* NAV */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -57,8 +55,6 @@ nav {
   text-transform: uppercase;
   color: rgba(245,245,237,0.45);
 }
-
-/* HERO */
 .hero {
   min-height: 100vh;
   background: var(--green-deep);
@@ -69,7 +65,6 @@ nav {
   position: relative;
   overflow: hidden;
 }
-/* Lotus floating animation */
 .lotus-layer {
   position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0;
 }
@@ -185,16 +180,12 @@ nav {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-/* SCROLL REVEAL */
 .reveal {
   opacity: 0;
   transform: translateY(36px);
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
 .reveal.in { opacity: 1; transform: translateY(0); }
-
-/* SHARED SECTION */
 .section { padding: 112px 48px; }
 .section-inner { max-width: 1200px; margin: 0 auto; }
 .label {
@@ -207,8 +198,6 @@ nav {
   display: block;
 }
 .label.dark { color: var(--green-mid); }
-
-/* OPENING */
 .opening { background: var(--off-white); }
 .opening-h2 {
   font-family: var(--font-display);
@@ -263,8 +252,6 @@ nav {
   flex-shrink: 0;
 }
 .founder-photo:first-child { margin-left: 0; }
-
-/* NUMBERS */
 .numbers-section { background: var(--yellow); padding: 112px 48px; }
 .numbers-section .section-inner { max-width: 1200px; margin: 0 auto; }
 .numbers-section .label { color: rgba(6,35,26,0.5); }
@@ -305,8 +292,6 @@ nav {
   color: rgba(6,35,26,0.6);
   line-height: 1.4;
 }
-
-/* STARTED */
 .started-section { background: var(--green-deep); padding: 112px 48px; }
 .started-inner {
   max-width: 1200px;
@@ -346,8 +331,6 @@ nav {
   margin-top: 12px;
   line-height: 1.5;
 }
-
-/* COMMUNITY */
 .community-section { background: var(--off-white); overflow: hidden; }
 .community-h2 {
   font-family: var(--font-display);
@@ -474,8 +457,6 @@ nav {
 .d-labels { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; text-align: center; margin-top: 10px; }
 .d-label { font-size: 12px; font-weight: 600; color: var(--green-deep); }
 .d-pct { font-size: 10px; color: rgba(6,35,26,0.45); margin-top: 2px; }
-
-/* PROJECTS */
 .projects-section { background: var(--green-deep); padding: 112px 0; overflow: hidden; }
 .projects-header { padding: 0 48px; margin-bottom: 48px; }
 .projects-h2 {
@@ -516,12 +497,11 @@ nav {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center center;
   display: block;
   background: var(--green-mid);
   flex-shrink: 0;
 }
-.p-card-img.face-high { object-position: center 15%; }
 .p-card-img-placeholder {
   width: 100%; height: 220px;
   background: var(--green-mid);
@@ -564,8 +544,6 @@ nav {
 .p-card.emergency .p-desc { color: var(--green-deep); }
 .p-card.emergency .p-location { color: rgba(6,35,26,0.5); }
 .p-card.emergency .p-status { color: var(--green-mid); }
-
-/* SHANTI */
 .shanti-section { background: var(--green-deep); padding: 120px 48px; text-align: center; overflow: hidden; }
 .shanti-sub {
   font-size: 11px; font-weight: 600; letter-spacing: 3px;
@@ -583,8 +561,6 @@ nav {
 }
 .shanti-quote em { color: var(--yellow); font-style: normal; }
 .shanti-name { font-size: 13px; color: rgba(245,245,237,0.35); font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
-
-/* REACH */
 .reach-section { background: var(--off-white); overflow: hidden; }
 .reach-h2 {
   font-family: var(--font-display);
@@ -607,8 +583,6 @@ nav {
 .transparency { background: var(--green-mid); border-radius: var(--r); padding: 44px 48px; }
 .transparency p { font-size: 18px; color: rgba(245,245,237,0.82); line-height: 1.8; max-width: 700px; }
 .transparency p strong { color: var(--yellow); }
-
-/* NEXT */
 .next-section { background: var(--yellow); padding: 112px 48px; overflow: hidden; }
 .next-inner {
   max-width: 1200px; margin: 0 auto;
@@ -638,8 +612,6 @@ nav {
   transition: opacity 0.2s;
 }
 .next-cta:hover { opacity: 0.82; }
-
-/* FOOTER */
 footer {
   background: var(--green-deep);
   padding: 52px 48px;
@@ -650,8 +622,6 @@ footer {
 }
 .footer-logo { height: 32px; }
 .footer-text { font-size: 12px; color: rgba(245,245,237,0.3); text-align: right; line-height: 1.7; }
-
-/* RESPONSIVE 900px */
 @media (max-width: 900px) {
   nav { padding: 10px 20px; }
   .nav-logo { height: 40px; }
@@ -679,8 +649,6 @@ footer {
   .footer-text { text-align: center; }
   .transparency { padding: 32px 28px; }
 }
-
-/* RESPONSIVE 560px */
 @media (max-width: 560px) {
   .stat-pills { grid-template-columns: 1fr; }
   .reach-grid { grid-template-columns: 1fr 1fr; }
@@ -714,13 +682,11 @@ footer {
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <img src="images/Pushpa-yellow-logo.png" alt="Pushpa" class="nav-logo">
   <span class="nav-label">Year One Report</span>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="lotus-layer" aria-hidden="true">
     <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
@@ -751,7 +717,6 @@ footer {
   </div>
 </section>
 
-<!-- OPENING -->
 <section class="section opening">
   <div class="section-inner">
     <div class="reveal">
@@ -777,7 +742,6 @@ footer {
   </div>
 </section>
 
-<!-- NUMBERS -->
 <section class="numbers-section">
   <div class="section-inner">
     <span class="label">By the numbers</span>
@@ -811,7 +775,6 @@ footer {
   </div>
 </section>
 
-<!-- HOW IT STARTED -->
 <section class="started-section">
   <div class="started-inner reveal">
     <div>
@@ -830,28 +793,16 @@ footer {
   </div>
 </section>
 
-<!-- COMMUNITY -->
 <section class="section community-section">
   <div class="section-inner">
     <span class="label dark">The community</span>
     <h2 class="community-h2">WHO'S IN<br>THIS THING.</h2>
     <p class="community-intro">250 people putting money in every single month. 65% in the UK, 25% in the US, members across 10 countries. 85% under 35. 64% women. These aren't retired philanthropists. These are people with their own bills, their own pressures, their own lives who still decided to give a sh*t about where they came from. That's not a donor base. That's a movement.</p>
-
     <div class="stat-pills reveal">
-      <div class="stat-pill">
-        <div class="stat-pill-val">64%</div>
-        <div class="stat-pill-label">Women</div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-val">85%</div>
-        <div class="stat-pill-label">Under 35</div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-val">10</div>
-        <div class="stat-pill-label">Countries</div>
-      </div>
+      <div class="stat-pill"><div class="stat-pill-val">64%</div><div class="stat-pill-label">Women</div></div>
+      <div class="stat-pill"><div class="stat-pill-val">85%</div><div class="stat-pill-label">Under 35</div></div>
+      <div class="stat-pill"><div class="stat-pill-val">10</div><div class="stat-pill-label">Countries</div></div>
     </div>
-
     <div class="charts-grid reveal">
       <div class="chart-card">
         <p class="chart-title">Where we're from</p>
@@ -870,7 +821,6 @@ footer {
         <div class="chart-wrap"><canvas id="mrrChart"></canvas></div>
       </div>
     </div>
-
     <div class="mrr-callout reveal">
       <p class="mrr-callout-copy">From <strong>£65/month</strong> in November 2024 to <strong>£2,341/month</strong> today. 36x growth in 16 months. The model works.</p>
       <div class="mrr-badge">
@@ -878,7 +828,6 @@ footer {
         <div class="mrr-badge-label">MRR growth</div>
       </div>
     </div>
-
     <div class="discovery-chart reveal" id="discoverySection">
       <p class="chart-title">How people found us</p>
       <div class="discovery-bars">
@@ -899,7 +848,6 @@ footer {
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="projects-section">
   <div class="projects-header reveal">
     <span class="label">The work</span>
@@ -907,9 +855,8 @@ footer {
   </div>
   <div class="projects-scroll">
 
-    <!-- FOLON -->
     <div class="p-card">
-      <img src="images/Chan Mia.png" alt="Chan Mia" class="p-card-img face-high">
+      <img src="images/Chan Mia.png" alt="Chan Mia" class="p-card-img">
       <div class="p-card-body">
         <span class="p-status complete">Complete</span>
         <h3 class="p-name">Project Folon</h3>
@@ -927,7 +874,6 @@ footer {
       </div>
     </div>
 
-    <!-- GROW -->
     <div class="p-card">
       <img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/0cad203f-1807-414f-89cf-7082c0c84c8e/Screenshot+2025-03-10+at+17.01.58.png" alt="Project Grow" class="p-card-img">
       <div class="p-card-body">
@@ -947,9 +893,8 @@ footer {
       </div>
     </div>
 
-    <!-- BAMBOO -->
     <div class="p-card">
-      <img src="images/Abdul-Badabom.JPG" alt="Project Bamboo" class="p-card-img" style="object-position: center top;">
+      <img src="images/Abdul-Badabom.JPG" alt="Project Bamboo" class="p-card-img">
       <div class="p-card-body">
         <span class="p-status live">Live</span>
         <h3 class="p-name">Project Bamboo</h3>
@@ -967,9 +912,8 @@ footer {
       </div>
     </div>
 
-    <!-- KONNA -->
     <div class="p-card">
-      <img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/8dfebea0-60f8-4657-9328-033229673d77/IMG_2763.JPG" alt="Priyanka Mitra" class="p-card-img" style="object-position: center 20%;">
+      <img src="images/Priyanka Mitra.JPG" alt="Priyanka Mitra" class="p-card-img">
       <div class="p-card-body">
         <span class="p-status live">Live</span>
         <h3 class="p-name">Project Konna</h3>
@@ -987,9 +931,8 @@ footer {
       </div>
     </div>
 
-    <!-- HONEY -->
     <div class="p-card">
-      <img src="images/Shah Alom.JPG" alt="Md. Sha Alom" class="p-card-img" style="object-position: center 30%;">
+      <img src="images/Shah Alom.JPG" alt="Md. Sha Alom" class="p-card-img">
       <div class="p-card-body">
         <span class="p-status live">Live</span>
         <h3 class="p-name">Project Honey</h3>
@@ -1007,7 +950,6 @@ footer {
       </div>
     </div>
 
-    <!-- EMERGENCY -->
     <div class="p-card emergency">
       <img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/dd906d86-51e2-49c9-961a-efb280b3b267/Screenshot+2024-08-08+at+12.47.01.jpg" alt="Bangladesh Revolution 2024" class="p-card-img">
       <div class="p-card-body">
@@ -1025,35 +967,21 @@ footer {
   </div>
 </section>
 
-<!-- SHANTI QUOTE -->
 <section class="shanti-section reveal">
   <span class="shanti-sub">Project Folon, Gaibandha</span>
   <blockquote class="shanti-quote">"Being able to contribute as much as the men in my family. It's more than financial. <em>It's dignity.</em>"</blockquote>
   <p class="shanti-name">Shanti Begum</p>
 </section>
 
-<!-- REACH -->
 <section class="section reach-section">
   <div class="section-inner">
     <span class="label dark">Our reach</span>
     <h2 class="reach-h2">WE'RE NOT QUIET<br>ABOUT IT EITHER.</h2>
     <div class="reach-grid reveal">
-      <div class="reach-card">
-        <div class="reach-val">12.8K</div>
-        <div class="reach-lbl">Instagram followers</div>
-      </div>
-      <div class="reach-card">
-        <div class="reach-val">1.6M</div>
-        <div class="reach-lbl">Total content views</div>
-      </div>
-      <div class="reach-card">
-        <div class="reach-val">833</div>
-        <div class="reach-lbl">Email subscribers</div>
-      </div>
-      <div class="reach-card">
-        <div class="reach-val">4</div>
-        <div class="reach-lbl">Community votes held in 2025. Every project chosen by members.</div>
-      </div>
+      <div class="reach-card"><div class="reach-val">12.8K</div><div class="reach-lbl">Instagram followers</div></div>
+      <div class="reach-card"><div class="reach-val">1.6M</div><div class="reach-lbl">Total content views</div></div>
+      <div class="reach-card"><div class="reach-val">833</div><div class="reach-lbl">Email subscribers</div></div>
+      <div class="reach-card"><div class="reach-val">4</div><div class="reach-lbl">Community votes held in 2025. Every project chosen by members.</div></div>
     </div>
     <div class="transparency reveal">
       <p>Every penny tracked. Publicly. Always. <strong>That's not a promise.</strong> That's just how we're built. Throughout Year One, member contributions went 100% to projects. Operational costs were covered separately by our partners and supporters, so every pound you put in went directly to the ground. You can see exactly where it went.</p>
@@ -1061,7 +989,6 @@ footer {
   </div>
 </section>
 
-<!-- NEXT -->
 <section class="next-section">
   <div class="next-inner reveal">
     <h2 class="next-h2">YEAR ONE<br>IS DONE.<br>YEAR TWO<br>IS MOVING.</h2>
@@ -1075,7 +1002,6 @@ footer {
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <img src="images/Pushpa-yellow-logo.png" alt="Pushpa" class="footer-logo">
   <div class="footer-text">
@@ -1085,13 +1011,11 @@ footer {
 </footer>
 
 <script>
-// SCROLL REVEAL
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// COUNTER ANIMATION
 function animateCounter(el) {
   const target = parseInt(el.dataset.target);
   const prefix = el.dataset.prefix || '';
@@ -1117,7 +1041,6 @@ const counterObs = new IntersectionObserver(entries => {
 const countersEl = document.getElementById('counters');
 if (countersEl) counterObs.observe(countersEl);
 
-// DISCOVERY BARS
 const discObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -1131,7 +1054,6 @@ const discObs = new IntersectionObserver(entries => {
 const discEl = document.getElementById('discoverySection');
 if (discEl) discObs.observe(discEl);
 
-// DRAG TO SCROLL (desktop)
 const slider = document.querySelector('.projects-scroll');
 let isDown = false, startX, scrollLeft;
 slider.addEventListener('mousedown', e => {
@@ -1145,7 +1067,6 @@ slider.addEventListener('mousemove', e => {
   slider.scrollLeft = scrollLeft - (e.pageX - slider.offsetLeft - startX) * 1.4;
 });
 
-// CHARTS
 Chart.defaults.font.family = "'Poppins', sans-serif";
 
 new Chart(document.getElementById('geoChart'), {
