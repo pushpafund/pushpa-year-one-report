@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pushpa — Year One Report</title>
+<meta property="og:title" content="Pushpa Year One Report">
+<meta property="og:description" content="250 people. Six projects. 3,086 lives changed.">
+<meta property="og:image" content="https://impact.pushpafund.com/images/og-image.jpg">
+<meta property="og:url" content="https://impact.pushpafund.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Intro Rust';
+  src: url('fonts/IntroRust-Base.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --green-deep: #06231A;
+  --green-mid: #1C4E29;
+  --yellow: #FFC310;
+  --off-white: #F5F5ED;
+  --r: 10px;
+  --font-display: 'Intro Rust', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--off-white); color: var(--green-deep); overflow-x: hidden; width: 100%; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: var(--green-deep); padding: 10px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,195,16,0.15);
+}
+.nav-logo { height: 52px; width: auto; display: block; }
+.nav-label { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: rgba(245,245,237,0.45); }
+
+.hero {
+  min-height: 100vh; background: var(--green-deep);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 100px 48px 80px; position: relative; overflow: hidden;
+}
+.lotus-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.lotus-float { position: absolute; opacity: 0; will-change: transform, opacity; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+.lotus-float img { display: block; width: 100%; height: auto; filter: brightness(0) invert(1); }
+.lotus-float:nth-child(1)  { width: 68px;  top: 5%;  left: 3%;   animation: lf1 22s 0s    infinite; }
+.lotus-float:nth-child(2)  { width: 42px;  top: 20%; left: 18%;  animation: lf2 18s 4.1s  infinite; }
+.lotus-float:nth-child(3)  { width: 88px;  top: 8%;  left: 38%;  animation: lf3 26s 1.7s  infinite; }
+.lotus-float:nth-child(4)  { width: 50px;  top: 55%; left: 12%;  animation: lf4 20s 7.3s  infinite; }
+.lotus-float:nth-child(5)  { width: 32px;  top: 70%; left: 32%;  animation: lf1 15s 2.5s  infinite; }
+.lotus-float:nth-child(6)  { width: 62px;  top: 15%; left: 58%;  animation: lf2 24s 5.8s  infinite; }
+.lotus-float:nth-child(7)  { width: 40px;  top: 40%; left: 72%;  animation: lf3 19s 0.9s  infinite; }
+.lotus-float:nth-child(8)  { width: 76px;  top: 65%; left: 62%;  animation: lf4 28s 3.4s  infinite; }
+.lotus-float:nth-child(9)  { width: 46px;  top: 82%; left: 80%;  animation: lf1 17s 6.6s  infinite; }
+.lotus-float:nth-child(10) { width: 56px;  top: 30%; left: 88%;  animation: lf2 21s 11.2s infinite; }
+.lotus-float:nth-child(11) { width: 30px;  top: 90%; left: 48%;  animation: lf3 16s 8.8s  infinite; }
+.lotus-float:nth-child(12) { width: 72px;  top: 48%; left: 44%;  animation: lf4 30s 13.5s infinite; }
+@keyframes lf1 {
+  0%   { opacity:0;    transform:translate(0,0)        rotate(0deg)  scale(0.88); }
+  10%  { opacity:0.12; }
+  30%  { opacity:0.08; transform:translate(-18px,-28px) rotate(-6deg) scale(1);    }
+  60%  { opacity:0.1;  transform:translate(10px,-50px)  rotate(4deg)  scale(1.04); }
+  85%  { opacity:0.06; transform:translate(-8px,-30px)  rotate(-3deg) scale(0.96); }
+  100% { opacity:0;    transform:translate(0,0)        rotate(0deg)  scale(0.88); }
+}
+@keyframes lf2 {
+  0%   { opacity:0;    transform:translate(0,0)         rotate(5deg)  scale(0.9);  }
+  12%  { opacity:0.11; }
+  40%  { opacity:0.09; transform:translate(22px,-20px)  rotate(-4deg) scale(1.02); }
+  65%  { opacity:0.07; transform:translate(8px,15px)    rotate(8deg)  scale(0.97); }
+  88%  { opacity:0.1;  transform:translate(-12px,5px)   rotate(2deg)  scale(1.01); }
+  100% { opacity:0;    transform:translate(0,0)         rotate(5deg)  scale(0.9);  }
+}
+@keyframes lf3 {
+  0%   { opacity:0;    transform:translate(0,0)         rotate(-3deg) scale(0.92); }
+  8%   { opacity:0.13; }
+  35%  { opacity:0.07; transform:translate(-25px,18px)  rotate(5deg)  scale(1.05); }
+  70%  { opacity:0.1;  transform:translate(14px,30px)   rotate(-7deg) scale(0.98); }
+  90%  { opacity:0.06; transform:translate(5px,10px)    rotate(2deg)  scale(0.94); }
+  100% { opacity:0;    transform:translate(0,0)         rotate(-3deg) scale(0.92); }
+}
+@keyframes lf4 {
+  0%   { opacity:0;    transform:translate(0,0)         rotate(8deg)  scale(0.85); }
+  15%  { opacity:0.1;  }
+  45%  { opacity:0.08; transform:translate(20px,-35px)  rotate(-5deg) scale(1.06); }
+  72%  { opacity:0.12; transform:translate(-15px,-18px) rotate(6deg)  scale(0.95); }
+  92%  { opacity:0.07; transform:translate(8px,-8px)    rotate(-2deg) scale(1.02); }
+  100% { opacity:0;    transform:translate(0,0)         rotate(8deg)  scale(0.85); }
+}
+.hero-bg-text {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  font-family:var(--font-display); font-size:clamp(140px,22vw,320px);
+  color:rgba(255,195,16,0.04); white-space:nowrap; pointer-events:none; user-select:none; z-index:1;
+}
+.hero-content { position:relative; z-index:2; max-width:960px; }
+.hero-eyebrow { font-size:11px; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--yellow); margin-bottom:28px; opacity:0; animation:fadeUp 0.7s ease forwards 0.4s; }
+.hero-h1 { font-family:var(--font-display); font-size:clamp(88px,15vw,220px); color:var(--off-white); line-height:0.9; margin-bottom:44px; opacity:0; animation:fadeUp 0.7s ease forwards 0.6s; }
+.hero-h1 span { color:var(--yellow); }
+.hero-sub { font-size:clamp(16px,2vw,20px); font-weight:400; color:rgba(245,245,237,0.7); line-height:1.7; max-width:540px; margin-bottom:64px; opacity:0; animation:fadeUp 0.7s ease forwards 0.8s; }
+.hero-sub strong { color:var(--yellow); font-weight:600; }
+.hero-scroll { display:flex; align-items:center; gap:14px; color:rgba(245,245,237,0.3); font-size:11px; letter-spacing:2px; text-transform:uppercase; opacity:0; animation:fadeUp 0.7s ease forwards 1s; }
+.hero-scroll-line { width:48px; height:1px; background:rgba(245,245,237,0.25); }
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+.reveal { opacity:0; transform:translateY(36px); transition:opacity 0.75s ease, transform 0.75s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
+.section { padding:112px 48px; }
+.section-inner { max-width:1200px; margin:0 auto; }
+.label { font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--yellow); margin-bottom:20px; display:block; }
+.label.dark { color:var(--green-mid); }
+
+/* OPENING */
+.opening { background:var(--off-white); }
+.opening-h2 { font-family:var(--font-display); font-size:clamp(40px,5.5vw,80px); color:var(--green-deep); text-transform:uppercase; line-height:1; margin-bottom:48px; }
+.opening-body { font-size:17px; line-height:1.9; color:var(--green-deep); max-width:680px; margin-bottom:56px; }
+.opening-body p { margin-bottom:22px; }
+.founder-card { background:var(--green-deep); border-radius:var(--r); padding:48px; display:grid; grid-template-columns:1fr auto; gap:48px; align-items:end; }
+.founder-quote { font-size:clamp(16px,1.9vw,20px); font-weight:400; color:rgba(245,245,237,0.85); line-height:1.75; font-style:italic; }
+.founder-quote em { font-style:normal; color:var(--yellow); }
+.founder-by { font-size:12px; color:rgba(245,245,237,0.4); font-weight:500; letter-spacing:1px; margin-top:20px; }
+.founder-photos { display:flex; }
+.founder-photo { width:80px; height:80px; border-radius:50%; object-fit:cover; object-position:center 20%; border:3px solid var(--green-deep); background:var(--green-mid); margin-left:-18px; flex-shrink:0; }
+.founder-photo:first-child { margin-left:0; }
+
+/* NUMBERS */
+.numbers-section { background:var(--yellow); padding:112px 48px; }
+.numbers-section .section-inner { max-width:1200px; margin:0 auto; }
+.numbers-section .label { color:rgba(6,35,26,0.5); }
+.numbers-h2 { font-family:var(--font-display); font-size:clamp(40px,5.5vw,76px); color:var(--green-deep); text-transform:uppercase; line-height:1; margin-bottom:56px; }
+.numbers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; background:rgba(6,35,26,0.12); border-radius:var(--r); overflow:hidden; width:100%; }
+.num-card { background:var(--yellow); padding:48px 24px; text-align:center; min-width:0; }
+.num-val { font-family:var(--font-display); font-size:clamp(28px,4.5vw,72px); color:var(--green-deep); line-height:1; margin-bottom:10px; word-break:break-word; }
+.num-label { font-size:13px; font-weight:400; color:rgba(6,35,26,0.6); line-height:1.4; }
+
+/* STARTED */
+.started-section { background:var(--green-deep); padding:112px 48px; }
+.started-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.started-h2 { font-family:var(--font-display); font-size:clamp(44px,6vw,84px); color:var(--off-white); text-transform:uppercase; line-height:0.95; margin-bottom:40px; }
+.started-h2 span { color:var(--yellow); }
+.started-body { font-size:17px; line-height:1.85; color:rgba(245,245,237,0.72); }
+.started-body p { margin-bottom:18px; }
+.started-stat { background:var(--yellow); border-radius:var(--r); padding:56px 40px; text-align:center; }
+.started-num { font-family:var(--font-display); font-size:clamp(80px,12vw,120px); color:var(--green-deep); line-height:1; }
+.started-num-label { font-size:15px; font-weight:500; color:var(--green-deep); margin-top:12px; line-height:1.5; }
+
+/* COMMUNITY */
+.community-section { background:var(--off-white); overflow:hidden; }
+.community-h2 { font-family:var(--font-display); font-size:clamp(40px,5.5vw,76px); color:var(--green-deep); text-transform:uppercase; line-height:1; margin-bottom:24px; }
+.community-intro { font-size:17px; line-height:1.9; color:var(--green-deep); max-width:680px; margin-bottom:64px; }
+.stat-pills { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:48px; width:100%; }
+.stat-pill { background:var(--green-deep); border-radius:var(--r); padding:32px 24px; min-width:0; }
+.stat-pill-val { font-family:var(--font-display); font-size:clamp(40px,5vw,60px); color:var(--yellow); line-height:1; }
+.stat-pill-label { font-size:13px; color:rgba(245,245,237,0.5); margin-top:6px; }
+.charts-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; width:100%; }
+.chart-card { background:white; border-radius:var(--r); padding:32px; border:1px solid rgba(6,35,26,0.07); min-width:0; overflow:hidden; }
+.chart-card.wide { grid-column:1 / -1; }
+.chart-title { font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--green-deep); margin-bottom:24px; opacity:0.7; }
+.chart-wrap { position:relative; height:240px; width:100%; }
+.mrr-callout { background:var(--green-mid); border-radius:var(--r); padding:36px 44px; display:flex; align-items:center; justify-content:space-between; gap:32px; margin-top:20px; width:100%; }
+.mrr-callout-copy { font-size:17px; color:rgba(245,245,237,0.8); line-height:1.7; min-width:0; }
+.mrr-callout-copy strong { color:var(--yellow); font-weight:600; }
+.mrr-badge { background:var(--yellow); border-radius:var(--r); padding:18px 28px; text-align:center; flex-shrink:0; }
+.mrr-badge-num { font-family:var(--font-display); font-size:52px; color:var(--green-deep); line-height:1; }
+.mrr-badge-label { font-size:11px; color:var(--green-deep); font-weight:600; letter-spacing:2px; text-transform:uppercase; margin-top:4px; }
+.discovery-chart { background:white; border-radius:var(--r); padding:32px; border:1px solid rgba(6,35,26,0.07); margin-top:20px; width:100%; overflow:hidden; }
+.discovery-bars { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; align-items:end; height:150px; margin-bottom:12px; }
+.d-bar-wrap { display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end; }
+.d-bar-outer { width:100%; height:130px; background:rgba(6,35,26,0.06); border-radius:6px; display:flex; align-items:flex-end; overflow:hidden; }
+.d-bar { width:100%; background:var(--yellow); border-radius:6px 6px 0 0; height:0; transition:height 1.2s cubic-bezier(0.25,1,0.5,1); }
+.d-labels { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; text-align:center; margin-top:10px; }
+.d-label { font-size:12px; font-weight:600; color:var(--green-deep); }
+.d-pct { font-size:10px; color:rgba(6,35,26,0.45); margin-top:2px; }
+
+/* PROJECTS */
+.projects-section { background:var(--green-deep); padding:112px 0; overflow:hidden; }
+.projects-header { padding:0 48px; margin-bottom:48px; }
+.projects-h2 { font-family:var(--font-display); font-size:clamp(48px,7.5vw,100px); color:var(--off-white); text-transform:uppercase; line-height:0.92; }
+.projects-h2 span { color:var(--yellow); }
+.projects-scroll {
+  display:flex; gap:20px; overflow-x:auto; padding:8px 48px 44px;
+  scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain; scroll-padding-left:48px;
+  scrollbar-width:thin; scrollbar-color:var(--yellow) rgba(255,255,255,0.08);
+  cursor:grab; align-items:stretch;
+}
+.projects-scroll::-webkit-scrollbar { height:4px; }
+.projects-scroll::-webkit-scrollbar-track { background:rgba(255,255,255,0.08); }
+.projects-scroll::-webkit-scrollbar-thumb { background:var(--yellow); border-radius:2px; }
+.p-card { flex:0 0 360px; background:var(--off-white); border-radius:var(--r); overflow:hidden; scroll-snap-align:start; display:flex; flex-direction:column; }
+.p-card-img { width:100%; height:220px; object-fit:cover; object-position:center center; display:block; background:var(--green-mid); flex-shrink:0; }
+.p-card-body { padding:24px; flex:1; display:flex; flex-direction:column; }
+.p-status { font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; display:block; }
+.p-status.complete { color:var(--green-mid); }
+.p-status.live { color:#1C7A40; }
+.p-name { font-family:var(--font-display); font-size:34px; color:var(--green-deep); text-transform:uppercase; line-height:1; margin-bottom:4px; }
+.p-location { font-size:12px; color:rgba(6,35,26,0.4); margin-bottom:16px; }
+.p-desc { font-size:14px; line-height:1.7; color:var(--green-deep); margin-bottom:18px; min-height:100px; }
+.p-stats { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; margin-top:auto; }
+.p-stat { background:var(--green-deep); border-radius:8px; padding:10px 12px; text-align:center; flex:1; min-width:0; }
+.p-stat-val { font-family:var(--font-display); font-size:20px; color:var(--yellow); line-height:1; }
+.p-stat-lbl { font-size:10px; color:rgba(245,245,237,0.45); font-weight:500; margin-top:3px; line-height:1.3; }
+.p-quote { background:var(--green-deep); border-radius:8px; padding:18px; margin-bottom:16px; }
+.p-quote-text { font-size:13px; font-style:italic; color:rgba(245,245,237,0.85); line-height:1.6; margin-bottom:8px; }
+.p-quote-name { font-size:11px; font-weight:600; color:var(--yellow); }
+.p-card-link {
+  display:block; text-align:center; background:transparent;
+  border:1.5px solid rgba(6,35,26,0.2); border-radius:8px;
+  padding:11px 16px; font-size:11px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase; color:var(--green-deep);
+  text-decoration:none; transition:all 0.2s; margin-top:auto;
+}
+.p-card-link:hover { background:var(--green-deep); color:var(--yellow); border-color:var(--green-deep); }
+.p-card.emergency { background:var(--yellow); }
+.p-card.emergency .p-name, .p-card.emergency .p-desc { color:var(--green-deep); }
+.p-card.emergency .p-location { color:rgba(6,35,26,0.5); }
+.p-card.emergency .p-status { color:var(--green-mid); }
+.p-card.emergency .p-card-link { border-color:rgba(6,35,26,0.25); color:var(--green-deep); }
+.p-card.emergency .p-card-link:hover { background:var(--green-deep); color:var(--yellow); }
+
+/* SHANTI */
+.shanti-section { background:var(--green-deep); padding:120px 48px; text-align:center; overflow:hidden; }
+.shanti-sub { font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:rgba(245,245,237,0.3); margin-bottom:48px; display:block; }
+.shanti-quote { font-family:var(--font-display); font-size:clamp(32px,5vw,72px); color:var(--off-white); line-height:1.05; max-width:920px; margin:0 auto 32px; text-transform:uppercase; }
+.shanti-quote em { color:var(--yellow); font-style:normal; }
+.shanti-name { font-size:13px; color:rgba(245,245,237,0.35); font-weight:500; letter-spacing:2px; text-transform:uppercase; }
+
+/* PARTNERS */
+.partners-section { background:var(--off-white); padding:96px 48px; overflow:hidden; border-top:1px solid rgba(6,35,26,0.08); }
+.partners-h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,56px); color:var(--green-deep); text-transform:uppercase; line-height:1; margin-bottom:16px; }
+.partners-sub { font-size:16px; color:rgba(6,35,26,0.55); line-height:1.7; max-width:560px; margin-bottom:64px; }
+.partners-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-items:center; }
+.partner-card {
+  background:white; border-radius:var(--r);
+  border:1px solid rgba(6,35,26,0.08);
+  padding:32px 28px; display:flex;
+  align-items:center; justify-content:center;
+  height:120px;
+}
+.partner-logo { max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain; filter:brightness(0); }
+.partner-logo.invert { filter:brightness(0) invert(1); background:var(--green-deep); border-radius:6px; padding:8px; max-height:72px; }
+
+/* REACH */
+.reach-section { background:var(--off-white); overflow:hidden; }
+.reach-h2 { font-family:var(--font-display); font-size:clamp(40px,5.5vw,76px); color:var(--green-deep); text-transform:uppercase; line-height:1; margin-bottom:56px; }
+.reach-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:40px; width:100%; }
+.reach-card { background:var(--green-deep); border-radius:var(--r); padding:32px 24px; min-width:0; }
+.reach-val { font-family:var(--font-display); font-size:clamp(36px,4vw,52px); color:var(--yellow); line-height:1; margin-bottom:8px; }
+.reach-lbl { font-size:13px; color:rgba(245,245,237,0.5); line-height:1.45; }
+.transparency { background:var(--green-mid); border-radius:var(--r); padding:44px 48px; }
+.transparency p { font-size:18px; color:rgba(245,245,237,0.82); line-height:1.8; max-width:700px; }
+.transparency p strong { color:var(--yellow); }
+
+/* NEXT */
+.next-section { background:var(--yellow); padding:112px 48px; overflow:hidden; }
+.next-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.next-h2 { font-family:var(--font-display); font-size:clamp(52px,7vw,100px); color:var(--green-deep); text-transform:uppercase; line-height:0.9; }
+.next-body { font-size:17px; color:var(--green-deep); line-height:1.85; margin-bottom:40px; }
+.next-body p { margin-bottom:18px; }
+.next-ctas { display:flex; flex-direction:column; gap:14px; }
+.next-cta {
+  display:inline-block; background:var(--green-deep); color:var(--yellow);
+  font-size:13px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+  padding:20px 44px; border-radius:var(--r); text-decoration:none;
+  transition:opacity 0.2s; text-align:center;
+}
+.next-cta:hover { opacity:0.82; }
+.next-cta.secondary {
+  background:transparent; color:var(--green-deep);
+  border:2px solid var(--green-deep);
+}
+.next-cta.secondary:hover { background:var(--green-deep); color:var(--yellow); opacity:1; }
+
+/* FOOTER */
+footer { background:var(--green-deep); padding:52px 48px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,195,16,0.12); }
+.footer-logo { height:32px; }
+.footer-text { font-size:12px; color:rgba(245,245,237,0.3); text-align:right; line-height:1.7; }
+
+/* RESPONSIVE 900px */
+@media (max-width:900px) {
+  nav { padding:10px 20px; }
+  .nav-logo { height:40px; }
+  .section { padding:72px 20px; }
+  .hero { padding:80px 20px 60px; }
+  .numbers-section { padding:72px 20px; }
+  .started-section { padding:72px 20px; }
+  .projects-section { padding:72px 0; }
+  .projects-header { padding:0 20px; }
+  .projects-scroll { padding:8px 20px 32px; gap:14px; scroll-padding-left:20px; }
+  .shanti-section { padding:72px 20px; }
+  .partners-section { padding:72px 20px; }
+  .next-section { padding:72px 20px; }
+  footer { padding:40px 20px; }
+  .numbers-grid { grid-template-columns:repeat(2,1fr); }
+  .started-inner { grid-template-columns:1fr; gap:36px; }
+  .stat-pills { grid-template-columns:1fr 1fr; }
+  .charts-grid { grid-template-columns:1fr; }
+  .chart-card.wide { grid-column:1; }
+  .mrr-callout { flex-direction:column; gap:20px; padding:28px 24px; }
+  .reach-grid { grid-template-columns:repeat(2,1fr); }
+  .next-inner { grid-template-columns:1fr; gap:36px; }
+  .founder-card { grid-template-columns:1fr; gap:28px; padding:32px; }
+  .p-card { flex:0 0 82vw; max-width:340px; }
+  .partners-grid { grid-template-columns:repeat(2,1fr); }
+  footer { flex-direction:column; gap:20px; text-align:center; }
+  .footer-text { text-align:center; }
+  .transparency { padding:32px 28px; }
+}
+@media (max-width:560px) {
+  .stat-pills { grid-template-columns:1fr; }
+  .reach-grid { grid-template-columns:1fr 1fr; }
+  .numbers-grid { grid-template-columns:1fr 1fr; }
+  .p-card { flex:0 0 86vw; max-width:none; }
+  .p-card-img { height:190px; }
+  .p-card-body { padding:20px; }
+  .hero-h1 { font-size:clamp(72px,18vw,88px); }
+  .shanti-quote { font-size:clamp(26px,7.5vw,40px); }
+  .projects-h2 { font-size:clamp(40px,10vw,64px); }
+  .next-h2 { font-size:clamp(44px,11vw,72px); }
+  .numbers-h2 { font-size:clamp(32px,8vw,48px); }
+  .opening-h2 { font-size:clamp(32px,8vw,52px); }
+  .community-h2 { font-size:clamp(32px,8vw,52px); }
+  .reach-h2 { font-size:clamp(32px,8vw,52px); }
+  .started-h2 { font-size:clamp(36px,9vw,56px); }
+  .chart-wrap { height:200px; }
+  .num-val { font-size:clamp(26px,8vw,44px); }
+  .num-card { padding:32px 12px; }
+  .d-labels .d-label { font-size:9px; }
+  .d-labels .d-pct { font-size:8px; }
+  .discovery-bars { gap:6px; }
+  .d-labels { gap:6px; }
+  .opening-body { font-size:15px; }
+  .community-intro { font-size:15px; }
+  .transparency { padding:28px 20px; }
+  .transparency p { font-size:16px; }
+  .next-body { font-size:15px; }
+  .partners-grid { grid-template-columns:repeat(2,1fr); }
+  .next-ctas { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <img src="images/Pushpa-yellow-logo.png" alt="Pushpa" class="nav-logo">
+  <span class="nav-label">Year One Report</span>
+</nav>
+
+<section class="hero">
+  <div class="lotus-layer" aria-hidden="true">
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+    <div class="lotus-float"><img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/54039860-1ee9-4d3b-b0f8-d9e1ca61f20e/57.png?format=1500w" alt=""></div>
+  </div>
+  <div class="hero-bg-text" aria-hidden="true">YEAR ONE</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Pushpa Fund &nbsp;/&nbsp; 2024 &ndash; 2025</p>
+    <h1 class="hero-h1">YEAR<br><span>ONE.</span></h1>
+    <p class="hero-sub">
+      <strong>250 people.</strong> Six projects. 3,086 lives changed.<br>
+      The diaspora just proved something.
+    </p>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      Scroll to read
+    </div>
+  </div>
+</section>
+
+<section class="section opening">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="label dark">The story</span>
+      <h2 class="opening-h2">WE BUILT THE THING<br>WE WISHED EXISTED.</h2>
+      <div class="opening-body">
+        <p>Mahian had the idea in 2020. Wrote it down. Parked it. There was no blueprint for what he was imagining, a real vehicle for diaspora communities to invest in economic change back home and actually see what happens.</p>
+        <p>Then he brought it to Farah and Zaynab. And Pushpa stopped being a note in a notebook.</p>
+        <p>The cynics said diaspora communities don't give. That we're disconnected and that we've moved on. We said watch.</p>
+      </div>
+      <div class="founder-card">
+        <div>
+          <p class="founder-quote">"We kept seeing people wanting to do something meaningful for Bangladesh. Not just send money home, not just donate to a charity they'd never hear from again. They wanted to back something real. <em>So we built the thing we wished existed.</em>"</p>
+          <p class="founder-by">Mahian, Farah &amp; Zaynab, Co-founders, Pushpa</p>
+        </div>
+        <div class="founder-photos">
+          <img src="images/Mahian-co-founder.jpg" alt="Mahian" class="founder-photo">
+          <img src="images/Farah-co-founder.jpg" alt="Farah" class="founder-photo">
+          <img src="images/Zaynab-co-founder.png" alt="Zaynab" class="founder-photo">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="numbers-section">
+  <div class="section-inner">
+    <span class="label">By the numbers</span>
+    <h2 class="numbers-h2">Year one<br>in numbers.</h2>
+    <div class="numbers-grid reveal" id="counters">
+      <div class="num-card">
+        <div class="num-val" data-target="35438" data-prefix="&pound;">£0</div>
+        <div class="num-label">Raised by the community</div>
+      </div>
+      <div class="num-card">
+        <div class="num-val" data-target="12951" data-prefix="&pound;">£0</div>
+        <div class="num-label">Deployed to projects</div>
+      </div>
+      <div class="num-card">
+        <div class="num-val" data-target="3086">0</div>
+        <div class="num-label">Lives improved</div>
+      </div>
+      <div class="num-card">
+        <div class="num-val" data-target="250">0</div>
+        <div class="num-label">People investing every month</div>
+      </div>
+      <div class="num-card">
+        <div class="num-val" data-target="10">0</div>
+        <div class="num-label">Countries represented</div>
+      </div>
+      <div class="num-card">
+        <div class="num-val" data-target="6">0</div>
+        <div class="num-label">Projects funded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="started-section">
+  <div class="started-inner reveal">
+    <div>
+      <span class="label">The first thing we ever did</span>
+      <h2 class="started-h2">BEFORE WE<br>EVEN <span>LAUNCHED.</span></h2>
+      <div class="started-body">
+        <p>August 2024. Students on the streets of Dhaka. Getting shot. Getting beaten. Trying to bring down a government.</p>
+        <p>We hadn't even properly launched. But the community showed up anyway, raised emergency funds in days, and paid for surgeries for the students who got hurt.</p>
+        <p>That wasn't the plan. That was just who we are. Then we got to work.</p>
+      </div>
+    </div>
+    <div class="started-stat">
+      <div class="started-num">16</div>
+      <div class="started-num-label">Emergency surgeries funded<br>during the Bangladesh revolution</div>
+    </div>
+  </div>
+</section>
+
+<section class="section community-section">
+  <div class="section-inner">
+    <span class="label dark">The community</span>
+    <h2 class="community-h2">WHO'S IN<br>THIS THING.</h2>
+    <p class="community-intro">250 people putting money in every single month. 65% in the UK, 25% in the US, members across 10 countries. These aren't retired philanthropists. These are people with their own bills, their own pressures, their own lives who still decided to give a sh*t about where they came from.</p>
+    <div class="stat-pills reveal">
+      <div class="stat-pill"><div class="stat-pill-val">64%</div><div class="stat-pill-label">Women</div></div>
+      <div class="stat-pill"><div class="stat-pill-val">85%</div><div class="stat-pill-label">Under 35</div></div>
+      <div class="stat-pill"><div class="stat-pill-val">10</div><div class="stat-pill-label">Countries</div></div>
+    </div>
+    <div class="charts-grid reveal">
+      <div class="chart-card">
+        <p class="chart-title">Where we're from</p>
+        <div class="chart-wrap"><canvas id="geoChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <p class="chart-title">Age breakdown</p>
+        <div class="chart-wrap"><canvas id="ageChart"></canvas></div>
+      </div>
+      <div class="chart-card wide">
+        <p class="chart-title">Community growth</p>
+        <div class="chart-wrap"><canvas id="growthChart"></canvas></div>
+      </div>
+      <div class="chart-card wide">
+        <p class="chart-title">Monthly recurring contributions</p>
+        <div class="chart-wrap"><canvas id="mrrChart"></canvas></div>
+      </div>
+    </div>
+    <div class="mrr-callout reveal">
+      <p class="mrr-callout-copy">From <strong>£65/month</strong> in November 2024 to <strong>£2,341/month</strong> today. 36x growth in 16 months. The model works.</p>
+      <div class="mrr-badge">
+        <div class="mrr-badge-num">36x</div>
+        <div class="mrr-badge-label">MRR growth</div>
+      </div>
+    </div>
+    <div class="discovery-chart reveal" id="discoverySection">
+      <p class="chart-title">How people found us</p>
+      <div class="discovery-bars">
+        <div class="d-bar-wrap"><div class="d-bar-outer"><div class="d-bar" data-h="42.3"></div></div></div>
+        <div class="d-bar-wrap"><div class="d-bar-outer"><div class="d-bar" data-h="36"></div></div></div>
+        <div class="d-bar-wrap"><div class="d-bar-outer"><div class="d-bar" data-h="9.9"></div></div></div>
+        <div class="d-bar-wrap"><div class="d-bar-outer"><div class="d-bar" data-h="4.5"></div></div></div>
+        <div class="d-bar-wrap"><div class="d-bar-outer"><div class="d-bar" data-h="3.2"></div></div></div>
+      </div>
+      <div class="d-labels">
+        <div><div class="d-label">Instagram</div><div class="d-pct">42.3%</div></div>
+        <div><div class="d-label">TikTok</div><div class="d-pct">36%</div></div>
+        <div><div class="d-label">Friends</div><div class="d-pct">9.9%</div></div>
+        <div><div class="d-label">Family</div><div class="d-pct">4.5%</div></div>
+        <div><div class="d-label">LinkedIn</div><div class="d-pct">3.2%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects-section">
+  <div class="projects-header reveal">
+    <span class="label">The work</span>
+    <h2 class="projects-h2">SIX PROJECTS.<br><span>REAL MONEY.</span><br>REAL PEOPLE.</h2>
+  </div>
+  <div class="projects-scroll">
+
+    <div class="p-card">
+      <img src="images/Chan Mia.png" alt="Chan Mia" class="p-card-img">
+      <div class="p-card-body">
+        <span class="p-status complete">Complete</span>
+        <h3 class="p-name">Project Folon</h3>
+        <p class="p-location">Gaibandha &middot; Give Bangladesh Foundation</p>
+        <p class="p-desc">We put £1,400 into 13 farming families in Gaibandha. The project projected 20% income growth. They came back with 23%. That's what happens when you back people who were already doing the work.</p>
+        <div class="p-stats">
+          <div class="p-stat"><div class="p-stat-val">£1,400</div><div class="p-stat-lbl">Funded</div></div>
+          <div class="p-stat"><div class="p-stat-val">63</div><div class="p-stat-lbl">People reached</div></div>
+          <div class="p-stat"><div class="p-stat-val">+23%</div><div class="p-stat-lbl">Income increase</div></div>
+        </div>
+        <div class="p-quote">
+          <p class="p-quote-text">"This will be the first time I get to buy my children new clothes for Eid."</p>
+          <p class="p-quote-name">Chan Mia</p>
+        </div>
+        <a href="https://www.pushpafund.com/project-folon" target="_blank" class="p-card-link">Read more</a>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/0cad203f-1807-414f-89cf-7082c0c84c8e/Screenshot+2025-03-10+at+17.01.58.png" alt="Project Grow" class="p-card-img">
+      <div class="p-card-body">
+        <span class="p-status complete">Complete</span>
+        <h3 class="p-name">Project Grow</h3>
+        <p class="p-location">Satkhira &middot; Agrogoti Sangstha</p>
+        <p class="p-desc">£1,800 into 10 families in Satkhira. What came back was 10 new businesses, corner shops, cattle, goats, sewing, and 10 children who stayed in school because their families could finally afford to keep them there.</p>
+        <div class="p-stats">
+          <div class="p-stat"><div class="p-stat-val">£1,800</div><div class="p-stat-lbl">Funded</div></div>
+          <div class="p-stat"><div class="p-stat-val">45</div><div class="p-stat-lbl">People reached</div></div>
+          <div class="p-stat"><div class="p-stat-val">10</div><div class="p-stat-lbl">New businesses</div></div>
+        </div>
+        <div class="p-quote">
+          <p class="p-quote-text">"I've doubled the investment Pushpa gave, from 4 goats to 8. It's now allowed my son to nearly complete school."</p>
+          <p class="p-quote-name">Salma</p>
+        </div>
+        <a href="https://www.pushpafund.com/grow-agrogoti-bangladesh" target="_blank" class="p-card-link">Read more</a>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/Abdul-Badabom.JPG" alt="Project Bamboo" class="p-card-img">
+      <div class="p-card-body">
+        <span class="p-status live">Live</span>
+        <h3 class="p-name">Project Bamboo</h3>
+        <p class="p-location">Naogaon &middot; Badabon Sangho</p>
+        <p class="p-desc">63 women trained in bamboo handicrafts. A commercial store now open in Lal Matia, Dhaka. This is economic infrastructure, not charity.</p>
+        <div class="p-stats">
+          <div class="p-stat"><div class="p-stat-val">£1,800</div><div class="p-stat-lbl">Funded</div></div>
+          <div class="p-stat"><div class="p-stat-val">63</div><div class="p-stat-lbl">Women trained</div></div>
+          <div class="p-stat"><div class="p-stat-val">+50%</div><div class="p-stat-lbl">Projected income</div></div>
+        </div>
+        <div class="p-quote">
+          <p class="p-quote-text">"This training will support us in building our businesses and achieving economic independence. It brings us dignity within our families."</p>
+          <p class="p-quote-name">The women of Project Bamboo</p>
+        </div>
+        <a href="https://www.pushpafund.com/bamboo-badabon-sangho-1" target="_blank" class="p-card-link">Read more</a>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/Priyanka Mitra.JPG" alt="Priyanka Mitra" class="p-card-img">
+      <div class="p-card-body">
+        <span class="p-status live">Live</span>
+        <h3 class="p-name">Project Konna</h3>
+        <p class="p-location">Sreemangal &middot; Give Bangladesh Foundation</p>
+        <p class="p-desc">1,100 tea garden workers. Menstrual health isn't a nice-to-have, it's an economic issue. Women missing work, missing income, missing out. 555 reusable pads distributed. 37 sessions held. 9 community leaders trained. 555 women now earning 8% more.</p>
+        <div class="p-stats">
+          <div class="p-stat"><div class="p-stat-val">£3,500</div><div class="p-stat-lbl">Funded</div></div>
+          <div class="p-stat"><div class="p-stat-val">1,100</div><div class="p-stat-lbl">Beneficiaries</div></div>
+          <div class="p-stat"><div class="p-stat-val">+8%</div><div class="p-stat-lbl">Income increase</div></div>
+        </div>
+        <div class="p-quote">
+          <p class="p-quote-text">"Now I can move freely. Earlier, every movement came with worry. Now I feel completely at ease."</p>
+          <p class="p-quote-name">Priyanka Mitra</p>
+        </div>
+        <a href="https://www.pushpafund.com/konna" target="_blank" class="p-card-link">Read more</a>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/Shah Alom.JPG" alt="Md. Sha Alom" class="p-card-img">
+      <div class="p-card-body">
+        <span class="p-status live">Live</span>
+        <h3 class="p-name">Project Honey</h3>
+        <p class="p-location">Sirajganj &middot; Ignite Global Foundation</p>
+        <p class="p-desc">15 families. 45 beehives. 104kg harvested from the first two extractions. For Sha Alom, who lost a leg in an accident and can't do heavy labour, beekeeping doesn't ask anything from his body that he can't give. His family eats. His daughter stays in school.</p>
+        <div class="p-stats">
+          <div class="p-stat"><div class="p-stat-val">£2,881</div><div class="p-stat-lbl">Funded</div></div>
+          <div class="p-stat"><div class="p-stat-val">75</div><div class="p-stat-lbl">People reached</div></div>
+          <div class="p-stat"><div class="p-stat-val">104kg</div><div class="p-stat-lbl">Honey harvested</div></div>
+        </div>
+        <div class="p-quote">
+          <p class="p-quote-text">"After the accident, I thought my ability to provide for my family was gone. The bees gave it back."</p>
+          <p class="p-quote-name">Md. Sha Alom</p>
+        </div>
+        <a href="https://www.pushpafund.com/honey" target="_blank" class="p-card-link">Read more</a>
+      </div>
+    </div>
+
+    <div class="p-card emergency">
+      <img src="https://images.squarespace-cdn.com/content/v1/666474f3073ba96085b5226e/dd906d86-51e2-49c9-961a-efb280b3b267/Screenshot+2024-08-08+at+12.47.01.jpg" alt="Bangladesh Revolution 2024" class="p-card-img">
+      <div class="p-card-body">
+        <span class="p-status complete">Complete</span>
+        <h3 class="p-name">Emergency Medical Fund</h3>
+        <p class="p-location">Bangladesh &middot; August 2024</p>
+        <p class="p-desc">August 2024. Students on the streets of Dhaka. Our community raised emergency funds and paid for surgeries for those injured in the revolution. We hadn't even properly launched. But this is who we are.</p>
+        <div class="p-stats">
+          <div class="p-stat"><div class="p-stat-val">16</div><div class="p-stat-lbl">Surgeries funded</div></div>
+          <div class="p-stat"><div class="p-stat-val">7 days</div><div class="p-stat-lbl">To mobilise</div></div>
+        </div>
+        <a href="https://www.pushpafund.com/emergency-fund" target="_blank" class="p-card-link">Read more</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="shanti-section reveal">
+  <span class="shanti-sub">Project Folon, Gaibandha</span>
+  <blockquote class="shanti-quote">"Being able to contribute as much as the men in my family. It's more than financial. <em>It's dignity.</em>"</blockquote>
+  <p class="shanti-name">Shanti Begum</p>
+</section>
+
+<section class="partners-section">
+  <div class="section-inner">
+    <span class="label dark">The ecosystem</span>
+    <h2 class="partners-h2 reveal">BACKED BY PEOPLE<br>WHO GET IT.</h2>
+    <p class="partners-sub reveal">The organisations and brands that have supported, partnered with, and believed in Pushpa from the start.</p>
+    <div class="partners-grid reveal">
+      <div class="partner-card">
+        <img src="images/khanums-logo.png" alt="Khanums" class="partner-logo">
+      </div>
+      <div class="partner-card">
+        <img src="images/vivid-by-maryam-logo.webp" alt="Vivid by Maryam" class="partner-logo">
+      </div>
+      <div class="partner-card" style="background:#000;">
+        <img src="images/MAH-logo.png" alt="MAH Chartered Accountants" class="partner-logo" style="filter:none; max-height:52px;">
+      </div>
+      <div class="partner-card">
+        <img src="images/Bideshi-logo.webp" alt="Bideshi" class="partner-logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reach-section">
+  <div class="section-inner">
+    <span class="label dark">Our reach</span>
+    <h2 class="reach-h2">WE'RE NOT QUIET<br>ABOUT IT EITHER.</h2>
+    <div class="reach-grid reveal">
+      <div class="reach-card"><div class="reach-val">12.8K</div><div class="reach-lbl">Instagram followers</div></div>
+      <div class="reach-card"><div class="reach-val">1.6M</div><div class="reach-lbl">Total content views</div></div>
+      <div class="reach-card"><div class="reach-val">833</div><div class="reach-lbl">Email subscribers</div></div>
+      <div class="reach-card"><div class="reach-val">4</div><div class="reach-lbl">Community votes held in 2025. Every project chosen by members.</div></div>
+    </div>
+    <div class="transparency reveal">
+      <p>Every penny tracked. Publicly. Always. Throughout Year One, member contributions went 100% to projects. Operational costs were covered separately by our partners and supporters, so every pound you put in went directly to the ground. <strong>You can see exactly where it went.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="next-section">
+  <div class="next-inner reveal">
+    <h2 class="next-h2">YEAR ONE<br>IS DONE.<br>YEAR TWO<br>IS MOVING.</h2>
+    <div>
+      <div class="next-body">
+        <p>Project Khanums launches in 2026. Sewing training for women forced into sex work, built in partnership with Khanum's and fundraised for by this community. The community has already voted on what comes next. The pipeline is full and the fund keeps growing.</p>
+        <p><strong>250 people proved the model works. Now we find the next 250. And the 250 after that.</strong></p>
+      </div>
+      <div class="next-ctas">
+        <a href="https://pushpafund.com" class="next-cta">Join the community</a>
+        <a href="mailto:hi@pushpafund.com?subject=Corporate%20Partnership%20with%20Pushpa&body=Hi%20Pushpa%20team%2C%0A%0AI%27d%20love%20to%20find%20out%20more%20about%20becoming%20a%20corporate%20partner." class="next-cta secondary">Become a corporate partner</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="images/Pushpa-yellow-logo.png" alt="Pushpa" class="footer-logo">
+  <div class="footer-text">
+    Pushpa Ltd, Company No. 15772297<br>
+    Built by the community, for the community.
+  </div>
+</footer>
+
+<script>
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const prefix = el.dataset.prefix || '';
+  const dur = 2000;
+  const start = performance.now();
+  const tick = now => {
+    const p = Math.min((now - start) / dur, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const val = Math.floor(eased * target);
+    el.textContent = prefix + (target >= 1000 ? val.toLocaleString('en-GB') : val);
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('[data-target]').forEach(animateCounter);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+const countersEl = document.getElementById('counters');
+if (countersEl) counterObs.observe(countersEl);
+
+const discObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.d-bar').forEach((bar, i) => {
+        setTimeout(() => { bar.style.height = bar.dataset.h + '%'; }, i * 80);
+      });
+      discObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+const discEl = document.getElementById('discoverySection');
+if (discEl) discObs.observe(discEl);
+
+const slider = document.querySelector('.projects-scroll');
+let isDown = false, startX, scrollLeft;
+slider.addEventListener('mousedown', e => {
+  isDown = true; slider.style.cursor = 'grabbing';
+  startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft;
+});
+slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
+slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
+slider.addEventListener('mousemove', e => {
+  if (!isDown) return; e.preventDefault();
+  slider.scrollLeft = scrollLeft - (e.pageX - slider.offsetLeft - startX) * 1.4;
+});
+
+Chart.defaults.font.family = "'Poppins', sans-serif";
+
+new Chart(document.getElementById('geoChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['UK', 'USA', 'Canada', 'Australia', 'Bangladesh', 'Other'],
+    datasets: [{ data: [65.4, 25.4, 3.3, 1.8, 1.5, 2.6], backgroundColor: ['#06231A','#1C4E29','#FFC310','#4A8C5C','#8BB5A0','#C8DDD4'], borderWidth: 0, hoverOffset: 6 }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, cutout: '66%',
+    plugins: { legend: { position: 'right', labels: { font: { size: 12 }, color: '#06231A', padding: 10, usePointStyle: true, pointStyleWidth: 8 } }, tooltip: { callbacks: { label: c => ` ${c.label}: ${c.raw}%` } } }
+  }
+});
+
+new Chart(document.getElementById('ageChart'), {
+  type: 'bar',
+  data: { labels: ['Under 18', '18-24', '25-34', '35-44', '45+'], datasets: [{ data: [0.9, 27, 57.9, 11.6, 3.6], backgroundColor: '#FFC310', borderRadius: 6, borderSkipped: false }] },
+  options: { responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.raw}%` } } },
+    scales: { x: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#06231A' } }, y: { grid: { color: 'rgba(6,35,26,0.06)' }, ticks: { font: { size: 11 }, color: 'rgba(6,35,26,0.4)', callback: v => v + '%' } } }
+  }
+});
+
+const growthLabels = ['Nov 24','Dec 24','Jan 25','Feb 25','Mar 25','Apr 25','May 25','Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25','Mar 26'];
+const growthData   = [9,13,23,27,74,93,107,119,123,161,186,190,205,213,250];
+new Chart(document.getElementById('growthChart'), {
+  type: 'line',
+  data: { labels: growthLabels, datasets: [{ data: growthData, borderColor: '#06231A', backgroundColor: 'rgba(6,35,26,0.07)', borderWidth: 2.5, fill: true, tension: 0.42, pointBackgroundColor: '#FFC310', pointBorderColor: '#06231A', pointBorderWidth: 2, pointRadius: 4, pointHoverRadius: 6 }] },
+  options: { responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.raw} members` } } },
+    scales: { x: { grid: { display: false }, ticks: { font: { size: 11 }, color: 'rgba(6,35,26,0.5)' } }, y: { grid: { color: 'rgba(6,35,26,0.06)' }, ticks: { font: { size: 11 }, color: 'rgba(6,35,26,0.4)' } } }
+  }
+});
+
+const mrrLabels = ['Nov 24','Dec 24','Jan 25','Feb 25','Mar 25','Apr 25','May 25','Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25','Mar 26'];
+const mrrData   = [65,110,350,380,835,1020,1105,1282,1222,1430,1609,1634,1803,1876,2341];
+new Chart(document.getElementById('mrrChart'), {
+  type: 'line',
+  data: { labels: mrrLabels, datasets: [{ data: mrrData, borderColor: '#FFC310', backgroundColor: 'rgba(255,195,16,0.1)', borderWidth: 3, fill: true, tension: 0.42, pointBackgroundColor: '#FFC310', pointBorderColor: '#06231A', pointBorderWidth: 2, pointRadius: 4, pointHoverRadius: 6 }] },
+  options: { responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` £${c.raw.toLocaleString('en-GB')}/month` } } },
+    scales: { x: { grid: { display: false }, ticks: { font: { size: 11 }, color: 'rgba(6,35,26,0.5)' } }, y: { grid: { color: 'rgba(6,35,26,0.06)' }, ticks: { font: { size: 11 }, color: 'rgba(6,35,26,0.4)', callback: v => '£' + v.toLocaleString('en-GB') } } }
+  }
+});
+</script>
+</body>
+</html>
